@@ -13,12 +13,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ContainersTest {
 
-    @ValueSource(strings = { "9.2.4.0-r1" })
+    @ValueSource(strings = { "ibmcom/mq:9.2.4.0-r1", "mongo/6.0.2-focal" })
     @ParameterizedTest
-    public void itShouldStartContainer(String tag) {
+    public void itShouldStartContainer(String image) {
         // given
-        log.info("about to create instance for {}", tag);
-        GenericContainer<?> ibmMq = new GenericContainer<>(DockerImageName.parse("ibmcom/mq:" + tag));
+        log.info("about to create instance for {}", image);
+        GenericContainer<?> ibmMq = new GenericContainer<>(DockerImageName.parse(image));
 
         // when
         log.info("about to start container");
