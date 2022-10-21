@@ -46,6 +46,7 @@ public class DockerTest {
 
         // then
         assertThat(images, not(empty()));
+        images.stream().map(Image::getRepoTags).forEach(tags -> log.info("following image with repoTags found: {}", tags));
         images.forEach(image -> log.info("following image found: {}", image));
     }
 
