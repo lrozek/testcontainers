@@ -21,9 +21,9 @@ public class ContainersTest {
         GenericContainer<?> ibmMq = new GenericContainer<>(DockerImageName.parse(image));
 
         // when
-        log.info("about to start container");
+        log.info("about to start container for {}", image);
         ibmMq.start();
-        log.info("container started");
+        log.info("container started for {}", image);
 
         // then
         assertThat(ibmMq.isRunning(), equalTo(true));
